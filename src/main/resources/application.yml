@@ -1,0 +1,56 @@
+server:
+  port: 80
+  error:
+    whitelabel:
+      enabled: false
+  compression:
+    enabled: true
+    mime-types: application/json
+
+spring:
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        format_sql: true
+  output:
+    ansi:
+      enabled: always
+
+logging:
+  level:
+    root: WARN
+    com:
+      trainme:
+        trainmeservice: DEBUG
+
+kafka:
+  bootstrap-address: test
+
+---
+
+spring:
+  profiles: development
+#  datasource:
+#    driverClassName: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://db.spring-kafka.com:3306/spring-kafka
+#    username: developer
+#    password: password
+
+---
+
+spring:
+  profiles: staging
+
+
+---
+
+spring:
+  profiles: production
+
