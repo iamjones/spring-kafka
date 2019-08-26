@@ -22,6 +22,11 @@ spring:
   output:
     ansi:
       enabled: always
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: test
+      auto-offset-reset: earliest
 
 logging:
   level:
@@ -29,9 +34,6 @@ logging:
     com:
       trainme:
         trainmeservice: DEBUG
-
-kafka:
-  bootstrap-address: test
 
 ---
 

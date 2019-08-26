@@ -1,30 +1,32 @@
 # spring-kafka
 Planning around with Kafka and Spring
 
-## Testing the producer in Docker
+## Kafkacat
+
+Kafkacat makes it easy to both produce and consume from a Kafka topic from the command line. This is good for testing our Kafka broker is working correctly.
+
+Kafkacat can be installed with homebrew.
+
+```
+brew install kafkacat
+```
+
+### Testing the producer in Docker
 
 You can publish some messages into a topic by running the following command.
 
 ```
-sh src/main/resources/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
+kafkacat -P -b {kafka-ip}:9092 -t test
 ```
 
-Or this for short.
-
-```
-make producer-test
-```
-
-## Testing the consumer in Docker
+### Testing the consumer in Docker
 
 You can consume the messages from the beginning offset by running the following command.
 
 ```
-sh src/main/resources/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
+kafkacat -C -b {kafka-ip}:9092 -t test 
 ```
 
-Or this for short.
+### Helpful links
 
-```
-make consumer-test
-```
+- https://stackoverflow.com/questions/35861501/kafka-in-docker-not-working
