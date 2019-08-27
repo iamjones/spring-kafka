@@ -22,11 +22,6 @@ spring:
   output:
     ansi:
       enabled: always
-  kafka:
-    bootstrap-servers: kafka:9092
-    consumer:
-      group-id: test
-      auto-offset-reset: earliest
 
 logging:
   level:
@@ -39,6 +34,16 @@ logging:
 
 spring:
   profiles: development
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: test
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
 #  datasource:
 #    driverClassName: com.mysql.jdbc.Driver
 #    url: jdbc:mysql://db.spring-kafka.com:3306/spring-kafka

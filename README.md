@@ -30,3 +30,5 @@ kafkacat -C -b {kafka-ip}:9092 -t test
 ### Helpful links
 
 - https://stackoverflow.com/questions/35861501/kafka-in-docker-not-working
+- https://rmoff.net/2018/08/02/kafka-listeners-explained/
+- https://www.confluent.io/blog/apache-kafka-spring-boot-application

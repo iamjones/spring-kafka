@@ -31,7 +31,7 @@ public class Swagger {
             .securitySchemes(Collections.singletonList(apiKey()))
             .securityContexts(Collections.singletonList(securityContext()))
             .select()
-            .apis(RequestHandlerSelectors.basePackage("com.trainme"))
+            .apis(RequestHandlerSelectors.basePackage("com.kafkaspring"))
             .paths(PathSelectors.any())
             .build()
             .pathMapping("/")
